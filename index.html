@@ -9,258 +9,355 @@
     * { box-sizing: border-box; }
 
     :root {
-      --bg: #0b0b0d;
-      --card: rgba(255,255,255,0.08);
-      --card-border: rgba(255,255,255,0.12);
-      --text: #ffffff;
-      --muted: #d6d6d6;
-      --yellow: #ffcf33;
-      --red: #d7262e;
-      --blue: #1196ff;
+      --bg: #06080d;
+      --surface: rgba(255,255,255,0.06);
+      --surface-strong: rgba(255,255,255,0.1);
+      --border: rgba(255,255,255,0.15);
+      --text: #f6f8ff;
+      --muted: #c5d1ea;
+      --yellow: #ffd447;
+      --yellow-strong: #ffbf00;
+      --red: #e53a44;
+      --blue: #34a8ff;
+      --shadow: 0 14px 34px rgba(0,0,0,0.35);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top, rgba(17,150,255,0.18), transparent 30%),
-        radial-gradient(circle at right top, rgba(255,207,51,0.18), transparent 25%),
-        linear-gradient(180deg, #111 0%, #0b0b0d 100%);
+        radial-gradient(circle at 8% 10%, rgba(229,58,68,0.22), transparent 25%),
+        radial-gradient(circle at 86% 18%, rgba(52,168,255,0.2), transparent 24%),
+        radial-gradient(circle at 52% 0%, rgba(255,212,71,0.14), transparent 30%),
+        linear-gradient(180deg, #0c1220 0%, #08101a 48%, #070a10 100%);
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
     .wrap {
-      width: min(1120px, calc(100% - 32px));
+      width: min(1140px, calc(100% - 34px));
       margin: 0 auto;
     }
 
+    .glass {
+      background: linear-gradient(165deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+    }
+
     .hero {
-      padding: 34px 0 70px;
+      padding: 28px 0 72px;
     }
 
     .topbar {
+      position: sticky;
+      top: 14px;
+      z-index: 20;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      margin-bottom: 32px;
       flex-wrap: wrap;
+      margin-bottom: 28px;
+      border-radius: 18px;
+      padding: 12px 16px;
+      background: rgba(8,16,26,0.7);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     .brand img {
-      width: 74px;
-      height: 74px;
+      width: 66px;
+      height: 66px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      padding: 5px;
       object-fit: contain;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.06);
-      padding: 6px;
-      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .brand-text h1 {
+    .brand h1 {
       margin: 0;
-      font-size: 1.4rem;
-      line-height: 1.05;
+      font-size: 1.2rem;
+      line-height: 1.1;
     }
 
-    .brand-text p {
-      margin: 6px 0 0;
+    .brand p {
+      margin: 5px 0 0;
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 0.92rem;
     }
 
     .top-actions {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
     .btn {
-      display: inline-block;
-      padding: 13px 18px;
-      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 17px;
+      border-radius: var(--radius-md);
       font-weight: 700;
-      transition: 0.2s ease;
+      transition: transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+      letter-spacing: 0.01em;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.28);
     }
 
     .btn-primary {
-      background: var(--yellow);
-      color: #111;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
+      background: linear-gradient(140deg, var(--yellow), var(--yellow-strong));
+      color: #1a1300;
+      border: 1px solid rgba(255,255,255,0.35);
     }
 
     .btn-outline {
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.25);
       color: #fff;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: center;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
     }
 
-    .hero-copy {
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      border: 1px solid var(--card-border);
-      border-radius: 28px;
-      padding: 34px;
-      backdrop-filter: blur(6px);
+    .hero-copy,
+    .hero-logo {
+      border-radius: var(--radius-xl);
+      padding: 32px;
     }
 
     .eyebrow {
-      display: inline-block;
-      background: rgba(215,38,46,0.16);
-      border: 1px solid rgba(215,38,46,0.35);
-      color: #ffdfe1;
-      padding: 8px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(229,58,68,0.2);
+      border: 1px solid rgba(229,58,68,0.36);
+      color: #ffe4e8;
+      padding: 8px 14px;
       border-radius: 999px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 700;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .hero-copy h2 {
       margin: 0 0 14px;
-      font-size: clamp(2.2rem, 5vw, 4.6rem);
-      line-height: 1.02;
+      font-size: clamp(2.1rem, 5vw, 4.4rem);
+      line-height: 1.03;
+      max-width: 12ch;
     }
 
     .hero-copy p {
+      margin: 0 0 20px;
       color: var(--muted);
-      font-size: 1.06rem;
-      margin-bottom: 24px;
-      max-width: 700px;
+      font-size: 1.03rem;
+      max-width: 60ch;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
-    .hero-logo {
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      border: 1px solid var(--card-border);
-      border-radius: 28px;
-      padding: 26px;
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(80px, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 14px;
+      padding: 12px;
       text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.15rem;
+      color: var(--yellow);
+      margin-bottom: 2px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .hero-logo {
+      text-align: center;
+      display: grid;
+      align-content: center;
+      gap: 20px;
     }
 
     .hero-logo img {
-      width: 100%;
-      max-width: 430px;
+      width: min(100%, 450px);
+      margin: 0 auto;
       object-fit: contain;
-      filter: drop-shadow(0 18px 28px rgba(0,0,0,0.35));
+      filter: drop-shadow(0 24px 28px rgba(0,0,0,.42));
     }
 
-    section {
-      padding: 22px 0 64px;
+    .availability {
+      font-weight: 600;
+      color: #dbe8ff;
+      margin: 0;
+      font-size: 0.97rem;
+    }
+
+    section { padding: 16px 0 58px; }
+
+    .section-head {
+      margin-bottom: 24px;
+      text-align: center;
     }
 
     .section-title {
-      text-align: center;
-      font-size: clamp(1.8rem, 4vw, 2.9rem);
-      margin: 0 0 10px;
+      margin: 0 0 8px;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
     }
 
     .section-subtitle {
-      text-align: center;
+      margin: 0 auto;
       color: var(--muted);
-      max-width: 760px;
-      margin: 0 auto 30px;
+      max-width: 70ch;
     }
 
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
+      gap: 16px;
     }
 
     .card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 22px;
-      padding: 22px;
-      backdrop-filter: blur(5px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+    }
+
+    .card .icon {
+      font-size: 1.45rem;
+      margin-bottom: 10px;
+      display: inline-block;
     }
 
     .card h3 {
-      margin: 0 0 10px;
+      margin: 0 0 8px;
       color: var(--yellow);
-      font-size: 1.15rem;
+      font-size: 1.1rem;
     }
 
     .card p {
       margin: 0;
       color: var(--muted);
+      font-size: 0.96rem;
     }
 
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .list {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .list li { margin-bottom: 7px; }
+
     .contact-box {
-      background: linear-gradient(135deg, rgba(255,207,51,0.12), rgba(17,150,255,0.12));
-      border: 1px solid var(--card-border);
-      border-radius: 30px;
-      padding: 32px;
+      border-radius: var(--radius-xl);
+      padding: 34px;
       text-align: center;
+      background: linear-gradient(140deg, rgba(255,212,71,.17), rgba(52,168,255,.17));
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: var(--shadow);
     }
 
     .phone {
       display: inline-block;
-      margin: 12px 0 18px;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 800;
-      color: var(--yellow);
+      margin: 8px 0 18px;
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      font-weight: 900;
+      color: #ffe48e;
+      letter-spacing: 0.02em;
     }
 
     .payments {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
+      gap: 16px;
     }
 
     .payments img {
       width: 100%;
-      max-width: 240px;
-      background: #fff;
-      padding: 10px;
-      border-radius: 18px;
-      display: block;
+      max-width: 235px;
       margin: 0 auto 14px;
+      display: block;
+      background: #fff;
+      border-radius: 16px;
+      padding: 9px;
+      border: 2px solid rgba(255,255,255,0.45);
     }
 
     footer {
       text-align: center;
-      color: #bdbdbd;
-      padding: 0 0 40px;
-      font-size: 0.95rem;
+      color: #b8c0d5;
+      font-size: 0.92rem;
+      padding: 0 0 34px;
     }
 
-    @media (max-width: 860px) {
-      .hero-grid {
+    @media (max-width: 960px) {
+      .hero-grid,
+      .split-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-copy, .hero-logo {
+      .hero-copy,
+      .hero-logo,
+      .contact-box {
         padding: 24px;
       }
+    }
+
+    @media (max-width: 620px) {
+      .wrap { width: min(1140px, calc(100% - 22px)); }
+      .topbar { top: 8px; }
+      .brand h1 { font-size: 1.06rem; }
+      .btn { width: 100%; }
+      .top-actions { width: 100%; }
+      .hero-copy h2 { max-width: 100%; }
+      .hero-stats { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -269,7 +366,7 @@
   <div class="wrap hero">
     <div class="topbar">
       <div class="brand">
-        <img src="Logo.PNG" alt="Top Dog Roadside Assistance logo">
+        <img src="Logo.PNG" alt="Top Dog Roadside Assistance logo" />
         <div class="brand-text">
           <h1>Top Dog Roadside Assistance</h1>
           <p>St. Thomas, U.S. Virgin Islands</p>
@@ -284,57 +381,101 @@
     </div>
 
     <div class="hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow">24/7 Roadside Help</div>
-        <h2>Fast roadside service when you need it most.</h2>
+      <div class="hero-copy glass">
+        <div class="eyebrow">🐾 24/7 Roadside Help</div>
+        <h2>Fast roadside service with real local response.</h2>
         <p>
           Tire repair, spare tire changes, battery jump-starts, vehicle lockouts,
-          oil changes, and brake service in St. Thomas.
+          oil changes, and brake service across St. Thomas.
         </p>
         <div class="hero-buttons">
           <a class="btn btn-primary" href="tel:7867199870">Call for Service</a>
-          <a class="btn btn-outline" href="#services">View Services</a>
+          <a class="btn btn-outline" href="#services">See Services</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>24/7</strong>
+            <span>Availability</span>
+          </div>
+          <div class="stat">
+            <strong>15+</strong>
+            <span>Service Types</span>
+          </div>
+          <div class="stat">
+            <strong>Local</strong>
+            <span>St. Thomas Team</span>
+          </div>
         </div>
       </div>
 
-      <div class="hero-logo">
-        <img src="Logo.PNG" alt="Top Dog Roadside Assistance logo artwork">
+      <div class="hero-logo glass">
+        <img src="Logo.PNG" alt="Top Dog Roadside Assistance logo artwork" />
+        <p class="availability">Serving residents, rental cars, and visitors island-wide.</p>
       </div>
     </div>
   </div>
 
   <section id="services">
     <div class="wrap">
-      <h2 class="section-title">Services</h2>
-      <p class="section-subtitle">
-        Fast, simple, and reliable roadside help in St. Thomas.
-      </p>
+      <div class="section-head">
+        <h2 class="section-title">Roadside Services</h2>
+        <p class="section-subtitle">Quick support, fair pricing, and dependable help when your vehicle leaves you stuck.</p>
+      </div>
 
       <div class="services">
-        <div class="card">
+        <div class="card glass">
+          <span class="icon">🛞</span>
           <h3>Tire Repair</h3>
-          <p>Flat tire help and roadside tire repair.</p>
+          <p>Roadside flat tire support and patch/repair guidance to get you rolling again.</p>
         </div>
-        <div class="card">
+        <div class="card glass">
+          <span class="icon">🔧</span>
           <h3>Spare Tire Change</h3>
-          <p>We remove the damaged tire and install your spare.</p>
+          <p>We remove the damaged tire and safely mount your spare tire onsite.</p>
         </div>
-        <div class="card">
+        <div class="card glass">
+          <span class="icon">🔋</span>
           <h3>Battery Jump-Start</h3>
-          <p>Dead battery assistance to get you moving again.</p>
+          <p>Fast jump-start service so you can get moving without waiting around.</p>
         </div>
-        <div class="card">
+        <div class="card glass">
+          <span class="icon">🔐</span>
           <h3>Vehicle Lockout</h3>
-          <p>Locked out? We provide lockout service.</p>
+          <p>Locked your keys inside? We provide careful lockout assistance.</p>
         </div>
-        <div class="card">
+        <div class="card glass">
+          <span class="icon">🛢️</span>
           <h3>Oil Change</h3>
-          <p>Mobile oil change service by appointment.</p>
+          <p>By-appointment mobile oil service designed for convenience.</p>
         </div>
-        <div class="card">
+        <div class="card glass">
+          <span class="icon">🧰</span>
           <h3>Brake Service</h3>
-          <p>Basic brake service by appointment.</p>
+          <p>Basic brake service by appointment for safer driving conditions.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split-grid">
+      <div class="card glass">
+        <h3>Why drivers choose Top Dog</h3>
+        <ul class="list">
+          <li>Friendly local service in St. Thomas.</li>
+          <li>Simple communication by call, text, or email.</li>
+          <li>Clear, practical support during stressful breakdowns.</li>
+          <li>Perfect for both residents and visitors.</li>
+        </ul>
+      </div>
+      <div class="card glass">
+        <h3>Service area & hours</h3>
+        <ul class="list">
+          <li>Coverage: St. Thomas, U.S. Virgin Islands.</li>
+          <li>Emergency roadside requests: <strong>24/7</strong>.</li>
+          <li>Oil & brake service: by appointment.</li>
+          <li>Call ahead for fastest dispatch.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -343,9 +484,7 @@
     <div class="wrap">
       <div class="contact-box">
         <h2 class="section-title" style="margin-top:0;">Need help now?</h2>
-        <p class="section-subtitle" style="margin-bottom:0;">
-          Call, text, or email for roadside service in St. Thomas.
-        </p>
+        <p class="section-subtitle" style="margin-bottom:0;">Call, text, or email and we’ll coordinate service right away.</p>
         <a class="phone" href="tel:7867199870">786-719-9870</a>
         <div class="hero-buttons" style="justify-content:center;">
           <a class="btn btn-primary" href="tel:7867199870">Call Now</a>
@@ -358,28 +497,28 @@
 
   <section>
     <div class="wrap">
-      <h2 class="section-title">Payment Options</h2>
-      <p class="section-subtitle">
-        Scan to pay with Cash App or Venmo.
-      </p>
+      <div class="section-head">
+        <h2 class="section-title">Payment Options</h2>
+        <p class="section-subtitle">Scan to pay securely with Cash App or Venmo.</p>
+      </div>
 
       <div class="payments">
-        <div class="card" style="text-align:center;">
-          <img src="cashapp-qr .PNG" alt="Cash App QR code">
+        <div class="card glass" style="text-align:center;">
+          <img src="cashapp-qr .PNG" alt="Cash App QR code" />
           <h3>Cash App</h3>
-          <p>Scan to pay.</p>
+          <p>Scan to send payment.</p>
         </div>
-        <div class="card" style="text-align:center;">
-          <img src="venmo-qr.PNG" alt="Venmo QR code">
+        <div class="card glass" style="text-align:center;">
+          <img src="venmo-qr.PNG" alt="Venmo QR code" />
           <h3>Venmo</h3>
-          <p>Scan to pay.</p>
+          <p>Scan to send payment.</p>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    © 2026 Top Dog Roadside Assistance • St. Thomas, V.I.
+    © 2026 Top Dog Roadside Assistance • St. Thomas, U.S. Virgin Islands
   </footer>
 
 </body>
