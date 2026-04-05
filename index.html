@@ -319,15 +319,9 @@
       gap: 16px;
     }
 
-    .payments img {
+    .pay-btn {
       width: 100%;
-      max-width: 235px;
-      margin: 0 auto 14px;
-      display: block;
-      background: #fff;
-      border-radius: 16px;
-      padding: 9px;
-      border: 2px solid rgba(255,255,255,0.45);
+      margin-top: 10px;
     }
 
     footer {
@@ -499,19 +493,19 @@
     <div class="wrap">
       <div class="section-head">
         <h2 class="section-title">Payment Options</h2>
-        <p class="section-subtitle">Scan to pay securely with Cash App or Venmo.</p>
+        <p class="section-subtitle">Tap below to pay securely with Cash App or Venmo.</p>
       </div>
 
       <div class="payments">
         <div class="card glass" style="text-align:center;">
-          <img src="cashapp-qr .PNG" alt="Cash App QR code" />
           <h3>Cash App</h3>
-          <p>Scan to send payment.</p>
+          <p>Open Cash App and send your payment.</p>
+          <a class="btn btn-primary pay-btn" href="https://cash.app/" target="_blank" rel="noopener noreferrer">Pay with Cash App</a>
         </div>
         <div class="card glass" style="text-align:center;">
-          <img src="venmo-qr.PNG" alt="Venmo QR code" />
           <h3>Venmo</h3>
-          <p>Scan to send payment.</p>
+          <p>Open Venmo and complete your payment.</p>
+          <a class="btn btn-outline pay-btn" href="https://venmo.com/" target="_blank" rel="noopener noreferrer">Pay with Venmo</a>
         </div>
       </div>
     </div>
